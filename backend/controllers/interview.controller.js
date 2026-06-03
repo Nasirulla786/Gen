@@ -22,7 +22,7 @@ export const interviewDetails = async(req , res)=>{
             ...report
         })
 
-        res.status(201).json({message:"Interview report create successfully"})
+        res.status(201).json({message:"Interview report create successfully.."})
 
     } catch (error) {
         console.log(error);
