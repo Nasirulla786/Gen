@@ -4,6 +4,8 @@ import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Home from '../pages/Home'
 import { useSelector } from 'react-redux'
+import Report from '../pages/Report'
+import PastReport from '../pages/PastReport'
 
 const RouteApp = () => {
   const {userData} = useSelector((state)=>state.user);
@@ -14,6 +16,8 @@ const RouteApp = () => {
         <Route path='/' element={userData?<Home />:<Navigate to="/login" />}   />
         <Route path='/register' element={!userData?<Register/>:<Navigate to="/" />}   />
         <Route path='/login' element={!userData?<Login/>:<Navigate to="/" />}   />
+        <Route path='/report/:id' element={<Report />}   />
+        <Route path='/get-all-reports' element={<PastReport/>}   />
 
     </Routes>
   )
