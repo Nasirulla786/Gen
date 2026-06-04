@@ -27,9 +27,6 @@ const handleSubmit = async () => {
       formData,
       {
         withCredentials: true,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
       }
     );
 
