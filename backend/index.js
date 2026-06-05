@@ -22,14 +22,9 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, origin);
-      } else {
-        callback(new Error("CORS policy: origin not allowed"));
-      }
-    },
-    credentials: true,
+    origin:"https://gen-1-u23e.onrender.com",
+
+    credentials:true
   }),
 );
 
