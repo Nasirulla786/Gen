@@ -26,7 +26,11 @@ export const RegisterController = async (req, res) => {
 
     const token = await generateToken(newUser._id);
 
-    res.cookie("token", token);
+    res.cookie("token", token ,{
+      httpOnly: true,
+  secure: true,
+  sameSite: "none",
+    });
 
     res.status(201).json(newUser);
   } catch (error) {
@@ -61,7 +65,11 @@ export const LoginController = async (req, res) => {
 
     const token = await generateToken(alreadyExist._id);
 
-    res.cookie("token", token);
+    res.cookie("token", token ,{
+      httpOnly: true,
+  secure: true,
+  sameSite: "none",
+    });
 
     res.status(201).json({message:"login Successfully"});
   } catch (error) {

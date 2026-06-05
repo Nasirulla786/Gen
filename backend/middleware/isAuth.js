@@ -10,11 +10,13 @@ const isAuth =  async(req , res , next)=>{
         }
 
         const tokenBlackList  = await BlackList.findOne({token})
-        if(tokenBlackList){
-            return
-        }
+ if(tokenBlackList){
+    return res.status(401).json({
+        message: "Token Blacklisted"
+    });
+}
 
-        const verifyToken = jwt.verify(token ,"Secret");
+        const verifyToken = jwt.verify(token ,process.env.JWT_SECRET);
 
         if(!verifyToken){
            return res.status(400).json({message:"UnAuthorizedUser"});
