@@ -14,18 +14,30 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+  process.env.CLIENT_URL || "https://gen-kwj5.onrender.com",
+  "http://localhost:5173",
+];
+
 app.use(
   cors({
-    origin: "https://gen-1-u23e.onrender.com",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, origin);
+      } else {
+        callback(new Error("CORS policy: origin not allowed"));
+      }
+    },
     credentials: true,
   }),
 );
 
 app.use("/api/auth", authRouter);
-app.use("/api/interview" , interviewRouter)
+app.use("/api/interview", interviewRouter);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   ConnectDb();
-
-  console.log("running");
+  console.log(`running on port ${PORT}`);
 });
