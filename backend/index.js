@@ -15,10 +15,15 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = [
-  process.env.CLIENT_URL || "https://gen-kwj5.onrender.com",
-  "http://localhost:5173",
-];
+
+
+// app.use(
+//   cors({
+//     origin:"http://localhost:5173",
+
+//     credentials:true
+//   }),
+// );
 
 app.use(
   cors({

@@ -165,6 +165,8 @@ const Report = () => {
     fetchReport();
   }, []);
 
+  // console.log("this iis",interviewReport);
+
   if (!interviewReport) return (
     <div style={{ minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"#060608",color:"#5a5a78",fontFamily:"sans-serif",gap:16 }}>
       <div style={{ width:40,height:40,border:"3px solid rgba(139,92,246,0.2)",borderTopColor:"#8b5cf6",borderRadius:"50%",animation:"rp-spin 0.8s linear infinite" }} />

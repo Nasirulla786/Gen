@@ -390,7 +390,7 @@ const Login = () => {
                   overflow: "hidden",
                 }}
               >
-                <span style={{ position: "relative", zIndex: 1 }}>Create Account →</span>
+                <span style={{ position: "relative", zIndex: 1 }}>Login Account →</span>
               </motion.button>
             </motion.div>
           )}

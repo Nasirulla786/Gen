@@ -37,6 +37,7 @@ const handleSubmit = async () => {
 
   } catch (error) {
     console.log(error);
+    alert("Network connection error...");
   } finally {
     setLoading(false);
   }
